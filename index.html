@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stockroom — Sign in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <section class="auth-brand">
+    <div class="brand">STOCK<span>ROOM</span></div>
+    <div class="brand-copy">
+      <h1>Inventory, tracked plainly.</h1>
+      <p>Know what you have, where it sits, and when it runs low.</p>
+      <ul>
+        <li>Live stock counts</li>
+        <li>Low-stock flags</li>
+        <li>One ledger, no spreadsheets</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="auth-panel">
+    <div class="auth-box">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Sign in</button>
+        <button class="tab" data-tab="register">Create account</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Email</label>
+        <input id="loginEmail" type="email" placeholder="you@company.com" required>
+        <label>Password</label>
+        <input id="loginPassword" type="password" placeholder="••••••••" required>
+        <button class="primary-btn" type="submit">Sign in</button>
+        <p id="loginMsg" class="form-msg"></p>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden">
+        <label>Full name</label>
+        <input id="regName" type="text" placeholder="Your name" required>
+        <label>Email</label>
+        <input id="regEmail" type="email" placeholder="you@company.com" required>
+        <label>Password</label>
+        <input id="regPassword" type="password" minlength="6" placeholder="Minimum 6 characters" required>
+        <button class="primary-btn" type="submit">Create account</button>
+        <p id="registerMsg" class="form-msg"></p>
+      </form>
+
+      <p class="auth-note">Demo application — data is stored locally in your browser.</p>
+    </div>
+  </section>
+  <script src="auth.js"></script>
+</body>
+</html>

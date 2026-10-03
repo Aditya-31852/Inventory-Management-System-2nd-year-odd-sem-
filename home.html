@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stockroom — Inventory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+  <header class="topbar">
+    <div class="brand">STOCK<span>ROOM</span></div>
+    <div class="top-actions">
+      <span id="welcomeUser"></span>
+      <button id="logoutBtn" class="outline-btn">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">INVENTORY CONTROL</p>
+        <h1>Good morning, <span id="userName">there</span>.</h1>
+        <p class="muted">Track stock, locations and low-stock items from one place.</p>
+      </div>
+      <button id="addBtn" class="primary-btn small">+ Add item</button>
+    </div>
+
+    <section class="stats-grid">
+      <article class="stat-card"><span>Total items</span><strong id="totalItems">0</strong></article>
+      <article class="stat-card"><span>Total units</span><strong id="totalUnits">0</strong></article>
+      <article class="stat-card warning"><span>Low stock</span><strong id="lowStock">0</strong></article>
+      <article class="stat-card"><span>Locations</span><strong id="locations">0</strong></article>
+    </section>
+
+    <section class="toolbar">
+      <input id="searchInput" class="search" placeholder="Search item, SKU or location...">
+      <select id="filterSelect">
+        <option value="all">All stock</option>
+        <option value="low">Low stock</option>
+        <option value="healthy">Healthy stock</option>
+      </select>
+    </section>
+
+    <section class="table-card">
+      <div class="table-head">
+        <h2>Inventory ledger</h2>
+        <span id="itemCount" class="muted"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Item</th><th>SKU</th><th>Location</th><th>Quantity</th><th>Reorder at</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="inventoryBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="empty hidden">No inventory items match your search.</div>
+    </section>
+  </main>
+
+  <dialog id="itemDialog">
+    <form id="itemForm" method="dialog" class="modal-form">
+      <div class="modal-header">
+        <h2 id="dialogTitle">Add inventory item</h2>
+        <button type="button" id="closeDialog" class="icon-btn">×</button>
+      </div>
+      <input type="hidden" id="itemId">
+      <label>Item name<input id="itemName" required></label>
+      <label>SKU<input id="itemSku" required></label>
+      <label>Location<input id="itemLocation" required></label>
+      <div class="two-col">
+        <label>Quantity<input id="itemQty" type="number" min="0" required></label>
+        <label>Reorder level<input id="itemReorder" type="number" min="0" required></label>
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="cancelBtn" class="outline-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save item</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="inventory.js"></script>
+</body>
+</html>
